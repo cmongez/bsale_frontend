@@ -17,14 +17,15 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid min-vh-100 d-flex flex-column">
         <header class="header row d-flex flex-column">
 
             <div class="col-sm-3"><img src="./src/img/logo.png" alt="" class="header__logo"></div>
             <div class="input-group input-group-sm mb-3 col-sm-2">
 
-                <input type="text" class="form-control" aria-label="Sizing example input"
+                <input type="text" id="inputSearch" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-sm">
+
                 <span class="input-group-text" id="inputGroup-sizing-sm">Buscar</span>
 
             </div>
@@ -71,45 +72,11 @@
                 </div>
             </div>
         </nav>
-        <main>
-            <div class="container-fluid">
-                <div class="row gap-1 d-flex wrap justify-content-evenly">
-                    <div class="col-sm-5 col-md-3 col-lg-2 mb-4 card">
-                        <img src="https://dojiw2m9tvv09.cloudfront.net/11132/product/misterbig3308256.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-5 col-md-3 col-lg-2 mb-4 card">
-                        <img src="https://dojiw2m9tvv09.cloudfront.net/11132/product/misterbig3308256.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-5 col-md-3 col-lg-2 mb-4 card">
-                        <img src="https://dojiw2m9tvv09.cloudfront.net/11132/product/misterbig3308256.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-5 col-md-3 col-lg-2 mb-4 card">
-                        <img src="https://dojiw2m9tvv09.cloudfront.net/11132/product/misterbig3308256.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
+        <main class="flex-grow-1">
+            <div class="products container-fluid ">
+                <div id="productsContainer" class="row gap-1 d-flex wrap justify-content-evenly">
+
+
                 </div>
             </div>
 
