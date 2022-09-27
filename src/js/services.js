@@ -9,3 +9,13 @@ export const getAllProducts = async () => {
     console.log('Error =>:', error);
   }
 };
+
+export const getAllCategories = async () => {
+  try {
+    const request = await fetch(`${URL}/v1/categories/`);
+    const response = await request.json();
+    return response;
+  } catch (error) {
+    console.log('Error =>:', error);
+  }
+};

@@ -1,17 +1,24 @@
-import { getAllProducts } from './services.js';
+import { getAllProducts, getAllCategories } from './services.js';
 
 const URL = 'https://bsale-backend-cesar-mongez.herokuapp.com';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const products = await getAllProducts();
+  const categories = await getAllCategories();
   await renderCards(products);
+  await renderCategories(categories);
+});
+
+let inputSearch = document.getElementById('inputSearch');
+inputSearch.addEventListener('keyup', (event) => {
+  searchProductos(event.target.value);
 });
 
 const renderCards = async (productsData) => {
-  const container = document.querySelector('#productsContainer');
-  container.innerHTML = '';
+  let containerCards = document.querySelector('#productsContainer');
+  containerCards.innerHTML = '';
   productsData.forEach((product) => {
-    container.innerHTML += `<div class="col-sm-5 col-md-3 col-lg-2 mb-4 card">
+    containerCards.innerHTML += `<div class="col-sm-5 col-md-3 col-lg-2 mb-4 card">
   <img src="${
     product.url_image == '' || product.url_image == null ? `./src/img/img-not-available.png` : product.url_image
   }" 
@@ -24,11 +31,24 @@ const renderCards = async (productsData) => {
 </div>`;
   });
 };
+const renderCategories = async (categories) => {
+  console.log(categories);
+  let containerNav = document.getElementById('navCategories');
+  containerNav.innerHTML = `
+  <li class="nav-item">
+  <a class="nav-link" href="#">
+    Todos los productos
+  </a>
+  </li>`;
 
-let inputSearch = document.getElementById('inputSearch');
-inputSearch.addEventListener('keyup', (event) => {
-  searchProductos(event.target.value);
-});
+  categories.forEach((category) => {
+    containerNav.innerHTML += ` 
+
+  <li class="nav-item">
+  <a class="nav-link" id="${category.id}" href="#">${category.name}</a>
+  </li>`;
+  });
+};
 
 const searchProductos = async (inputValue) => {
   try {
@@ -36,6 +56,16 @@ const searchProductos = async (inputValue) => {
     const response = await request.json();
     await renderCards(response);
     return response;
+  } catch (error) {
+    console.log('Error =>:', error);
+  }
+};
+
+const getCategory = async (category = '') => {
+  try {
+    const request = await fetch(`${URL}/v1/categories/${category}`);
+    const response = await request.json();
+    await renderCards(response);
   } catch (error) {
     console.log('Error =>:', error);
   }
