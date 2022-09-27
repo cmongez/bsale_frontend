@@ -4,4 +4,9 @@ body{
     max-width: 1100px;
     margin: auto;
 }
-
+.btn-bsale{
+    background-color: #FE6A00;
+}
+.btn-bsale:hover{
+    background-color: #fd8630;
+}
