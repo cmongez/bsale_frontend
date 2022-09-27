@@ -42,8 +42,7 @@ Debido a que la cantidad de productos no es mucha, se decidio no implementar pag
 ## Capturas
 ### Vista Desktop
 
-<center><img src="https://i.ibb.co/47R7w06/Bsale-Desktop.png" /></center>
+<center><img src="./src/img/BsaleDesktop.png" /></center>
 
 ### Vista Mobile
-
-<center><img src="https://i.ibb.co/m8hHcwK/bsalemobile.png" /></center>
+<img src="./src/img/bsalemobile.png"/>
