@@ -42,7 +42,7 @@ const getCategory = async (id) => {
   try {
     const request = await fetch(`${URL}/v1/products/category/${id}`);
     const response = await request.json();
-    await console.log(response);
+
     await renderCards(response);
   } catch (error) {
     console.log('Error =>:', error);
@@ -148,7 +148,6 @@ btnSearch.addEventListener('click', (event) => {
 
 const searchProductos = async (inputValue) => {
   try {
-    console.log(inputValue);
     const request = await fetch(`${URL}/v1/products/${inputValue}`);
     const response = await request.json();
     await renderCards(response);
