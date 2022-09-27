@@ -13,85 +13,98 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/css/styles.css">
+
     <title>Bsale_test</title>
 </head>
 
 <body>
     <div class="container-fluid min-vh-100 d-flex flex-column">
-        <header class="header row d-flex flex-column">
+        <header class="header row mt-3">
 
-            <div class="col-sm-3"><img src="./src/img/logo.png" alt="" class="header__logo"></div>
-            <div class="input-group input-group-sm mb-3 col-sm-2">
+            <a href="./index.html" class="w-50"><img src="./src/img/logo.png" alt="" class="header__logo "></a>
+            <div class="input-group input-group-sm mb-3 w-50">
 
-                <input type="text" id="inputSearch" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-sm">
+                <input type="text" id="inputSearch" placeholder="Buscar..." class=" form-control"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
 
-                <span class="input-group-text" id="inputGroup-sizing-sm">Buscar</span>
+                <btn id="btnSearch" class="input-group-text btn-bsale bg-bsale text-white" id="inputGroup-sizing-sm">
+                    Buscar</btn>
 
             </div>
 
         </header>
-        <nav class="nav navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <nav class="nav navbar navbar-expand-lg navbar-dark bg-bsale mb-4">
             <div class="nav__container container-fluid">
-                <a class="navbar-brand nav__title" href="#">Categorias</a>
+                <a class="navbar-brand d-md-none nav__title text-white" href="#">Categorias</a>
                 <button class="navbar-toggler nav__button" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarText">
-                    <ul class="text-center navbar-nav mx-auto pt-3 h5">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getAllProducts()">Todos los productos</a>
-                        </li>
+                    <ul id="navCategories" class="text-center navbar-nav mx-auto align-items-center h5">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getCategory('pisco')">Pisco</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getCategory('ron')">Ron</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getCategory('bebida')">Bebidas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getCategory('snack')">Snack</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getCategory('cerveza')">Cerveza</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getCategory('vodka')">Vodka</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getCategory('bebida energetica')">Bebidas
-                                energéticas</a>
-                        </li>
                     </ul>
+
 
                 </div>
             </div>
         </nav>
         <main class="flex-grow-1">
             <div class="products container-fluid ">
-                <div id="productsContainer" class="row gap-1 d-flex wrap justify-content-evenly">
+                <div id="productsContainer" class="row  d-flex wrap justify-content-evenly">
 
+
+
+                </div>
+                <div id="modalContainer">
 
                 </div>
             </div>
 
         </main>
-        <footer>
-            <div>
-                <p>hola desde el footer</p>
+        <footer class="bg-bsale mt-4 pt-3 pb-3">
+            <div class="
+          d-flex
+          flex-column flex-md-row
+          justify-content-center justify-content-md-around
+          align-items-center
+        ">
+                <ul
+                    class="socialNetworks d-flex justify-content-center align-items-center mt-2 d-flex  justify-content-around align-items-center">
+                    <li class="socialNetworks__item"><a href="https://www.linkedin.com/in/cmongez/" target="_blank"
+                            class="socialNetworks__link "><i title="Perfil de LinkedIn"
+                                class="fa-brands fa-linkedin socialNetworks__icon"></i></a></li>
+                    <li class="socialNetworks__item"><a href="https://github.com/cmongez" target="_blank"
+                            class="socialNetworks__link "><i title="Perfil de GitHub"
+                                class="fa-brands fa-github socialNetworks__icon"></i></a></li>
+                    <li class="socialNetworks__item"><a href="https://github.com/cmongez/portafolio" target="_blank"
+                            class="socialNetworks__link"><i title="Codigo portafolio"
+                                class="fa-solid fa-briefcase socialNetworks__icon"></i></a></li>
+                </ul>
+                <div class="d-flex flex-column align-items-center mb-2">
+                    <div class="d-flex align-items-center pb-2">
+                        <p class="text-center m-0">Hecho con</p>
+                        <div class="heart mx-2" title="Amor"></div>
+                        <p class="m-0"> con <span title="JavaScript Vanila"
+                                class="font-weight-bold font-italic text-white">JavaScript Vanila</span></p>
+                    </div>
+                    <p class="m-0"> Desarrollado por <a href="https://github.com/cmongez/" title="César Mongez"
+                            target="_blank" class="text-white font-weight-bold">César Mongez</a></p>
+                </div>
+                <p class="text-center m-0">Copyright © 2022</p>
             </div>
         </footer>
-    </div>
 
+    </div>
+    <script src="https://kit.fontawesome.com/88620717c7.js"></script>
+    <script src="./src/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="./src/js/script.js" type="module"></script>
+
+
+
 </body>
 
 </html>
