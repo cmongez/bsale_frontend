@@ -1,6 +1,6 @@
 ## CHALLENGE BSale - Front End (ECOMMERCE)
 
-<cemter><img src="https://i.ibb.co/cLTtjZx/bsale.png" width="70%" /></center>
+<center><img src="https://i.ibb.co/cLTtjZx/bsale.png" width="70%" /></center>
 
 https://bsale-test-cesar-mongez.netlify.app/
 
@@ -34,3 +34,16 @@ Desarrollado utilizando  **HTML**, **CSS**, **JavaScript**, **JavaScript** and *
 | ------------------------- | ----------------------------------------------------------------------------------- |
 | Bootstrap 5.0.2           | [Ir a web ](https://getbootstrap.com/docs/4.6/getting-started/introduction/)        |
 | Font Awesome              | [Ir a web ](https://fontawesome.com/)                                        |
+
+## Experiencia Bsale
+Dado que he realizado anteriormente Ecommerces se me hizo facil crear la interfaz y realizar las peticiones fetch.
+Debido a que la cantidad de productos no es mucha, se decidio no implementar paginación aunque tenemos un endpoint disponible por si en el futuro deseamos implementarlo. 
+
+## Capturas
+### Vista Desktop
+
+<center><img src="https://i.ibb.co/47R7w06/Bsale-Desktop.png" /></center>
+
+### Vista Mobile
+
+<center><img src="https://i.ibb.co/m8hHcwK/bsalemobile.png" /></center>
