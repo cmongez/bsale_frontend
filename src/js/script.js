@@ -52,8 +52,41 @@ const getCategory = async (id) => {
 //Renders
 //Render cards
 const renderCards = async (productsData) => {
+  //Render modal
+
+  let modalContainer = document.getElementById('modalContainer');
+
+  modalContainer.innerHTML = '';
+
+  modalContainer.innerHTML = `
+
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Aviso de la gerencia</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  A todos nuestros clientes le informamos que nuestra pagina esta en construccion. Siganos en nuestros cañales de informacion para enterarse cuando se encuentre disponible
+                  Nuestras sinceras disculpas. 
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-sale bg-bsale text-white"
+                      data-bs-dismiss="modal">Cerrar</button>
+              </div>
+          </div>
+      </div>
+  </div>`;
+
   let containerCards = document.querySelector('#productsContainer');
   containerCards.innerHTML = '';
+
+  //Cards
+
   productsData.forEach((product) => {
     containerCards.innerHTML += `
   <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -62,18 +95,23 @@ const renderCards = async (productsData) => {
           product.url_image == '' || product.url_image == null ? `./src/img/img-not-available.png` : product.url_image
         }" class="card-img-top" alt="..."></div>
         <div class="card-body d-flex flex-column justify-content-end">
-            <h5 class="card-title">${product.name}</h5>
+            <p class="card-title">${product.name}</p>
             ${
               product.discount > 0
                 ? `
-            <div class="card-price">
+            <div class="card-price d-flex justify-content-between">
+                <div class="d-inline">
+                <span class="old-price">$${product.price}</span>
                 <span>$${((100 - product.discount) * product.price) / 100}
                 </span>
-                <span>$${product.price}</span>
+                </div>
+                <span class="sale">OFERTA -${product.discount}% </span>
             </div>`
-                : `<div>$${product.price}</div>`
+                : `<div class="card-price" >$${product.price}</div>`
             }
-            <a href="#" class="btn btn-bsale text-white">Comprar</a>
+            <a type="button"  class="btn btn-bsale bg-bsale  text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Comprar
+            </a>
         </div>
     </div>
 </div>`;
@@ -84,28 +122,33 @@ const renderCards = async (productsData) => {
 const renderCategories = async (categories) => {
   let containerNav = document.getElementById('navCategories');
   containerNav.innerHTML = `
-  <li class="nav-item">
-  <a class="nav-link" onclick="getAllProductsNav()" href="#">
-    Todos los productos
+  <li class="nav-item btn-nav">
+  <a class="nav-link text-white" onclick="getAllProductsNav()" href="#">
+    todos los productos
   </a>
   </li>`;
   categories.forEach((category) => {
     containerNav.innerHTML += `
 
-  <li class="nav-item">
-  <a class="nav-link" onclick="getCategory(${category.id})" id="${category.id}" href="#">${category.name}</a>
+  <li class="nav-item btn-nav">
+  <a class="nav-link text-white" onclick="getCategory(${category.id})" id="${category.id}" href="#">${category.name}</a>
   </li>`;
   });
 };
 
 //Search realtime
 let inputSearch = document.getElementById('inputSearch');
+let btnSearch = document.getElementById('btnSearch');
 inputSearch.addEventListener('keyup', (event) => {
   searchProductos(event.target.value);
+});
+btnSearch.addEventListener('click', (event) => {
+  searchProductos(inputSearch.value);
 });
 
 const searchProductos = async (inputValue) => {
   try {
+    console.log(inputValue);
     const request = await fetch(`${URL}/v1/products/${inputValue}`);
     const response = await request.json();
     await renderCards(response);
