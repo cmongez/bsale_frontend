@@ -1,4 +1,4 @@
-const URL = 'https://bsale-backend-ic8a.onrender.com/';
+const URL = 'https://bsale-backend-ic8a.onrender.com';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const products = await getAllProducts();
