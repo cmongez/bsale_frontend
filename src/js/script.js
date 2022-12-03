@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await renderCategories(categories);
 });
 
-//Get data from api
+// Get data from api
 
 const getAllProducts = async () => {
   try {
